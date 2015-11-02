@@ -9,7 +9,7 @@ An example usage of butt could look like this:
 require "butt" -- Require butt, so we can use it
 
 function love.load()
-    butt.new(20, 20, 100, 40, "Button", "print(\"test\")", "examplebutton") -- Create a new button
+    butt.new(20, 20, 100, 40, "Button", love.quit, "examplebutton") -- Create a new button
 
     counter = 0
 
