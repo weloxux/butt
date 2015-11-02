@@ -27,7 +27,7 @@ function butt.new(px, py, width, height, text, action, id)
 	table.insert(buttons, button)
 end
 
-function butt.draw(dt)
+function butt.draw()
 	for button in buttons do
 		if style.borderwidth ~= 0 then -- Draw the border
 			love.graphics.setColor(style.bordercolor)
