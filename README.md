@@ -36,5 +36,11 @@ function love.draw()
 end
 ```
 
+## To do
+
+- [ ] Make text get displayed on buttons
+- [ ] Expand documentation
+- [ ] Run tests
+
 ## License
 butt is licensed under the GNU General Public License, version 3.
