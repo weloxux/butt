@@ -38,7 +38,7 @@ end
 
 ## To do
 
-- [ ] Make text get displayed on buttons
+- [x] Make text get displayed on buttons
 - [ ] Expand documentation
 - [ ] Run tests
 

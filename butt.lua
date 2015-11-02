@@ -1,8 +1,11 @@
 butt = {} -- Table to store our functions
 local buttons = {} -- Table to store buttons; invisible to the importer
 local style = {borderwidth = 2,
-		bordercolor = {170, 170, 170, 0}
-		bodycolor = {200, 200, 200, 0}
+		bordercolor = {170, 170, 170, 255}, -- {red, green, blue, alpha}
+		bodycolor = {200, 200, 200, 255},
+		textcolor = {10, 10, 10, 255},
+		textoffset = 5,
+		textsize = 1
 		}
 
 function butt.update(dt)
@@ -33,14 +36,18 @@ function butt.draw()
 			love.graphics.setColor(style.bordercolor)
 			love.graphics.rectangle("fill", button.px, button.py, button.width, button.height)
 		end
-		love.graphics.setColor(style.bodycolor)
+		
+		love.graphics.setColor(style.bodycolor) -- Draw the button body
 		love.graphics.rectangle("fill", button.px + style.borderwidth, button.py + style.borderwidth, button.width - style.borderwidth, button.height - style.borderheight)
+		
+		love.graphics.setColor(style.textcolor) -- Draw the button text
+		love.graphics.print(button.text, button.px + style.textoffset, button.py + style.textoffset, 0, style.textsize, style.textsize)
 	end
 end
 
 function butt.remove(id)
 	for button in buttons do
-		if button.id == id then
+		if button.id == id then -- Remove only button(s) with supplied id
 			table.remove(buttons, button)
 		end
 	end
