@@ -14,7 +14,8 @@ function butt.update(dt)
 	for k,button in pairs(buttons) do
 		if mx >= button.px and mx <= button.px + button.width and my >= button.py and my <= button.py + button.height then
 			if love.mouse.isDown("1") then
-				_G[button.action]()
+				--_G[button.action]()
+				button.action()
 			end
 		end
 	end
