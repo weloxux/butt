@@ -1,3 +1,7 @@
+# Ignore sample LOVE games
+main.lua
+*.love
+
 # Compiled Lua sources
 luac.out
 
