@@ -8,7 +8,40 @@ butt (short for _button_) is a very simple button library for LÖVE.
 
 ## Usage
 
-An example usage of butt could look like this:
+The first thing you need to use butt, is require it, like this:
+```lua
+require "butt"
+```
+
+To make sure butt can work properly, you need to execute `butt.update(dt)` and `butt.draw()` in love.update(dt) and love.draw() respectively.
+
+### Adding buttons
+Next of, you'll want to make some buttons. Buttons are created like this:
+```lua
+butt.new( x-location, y-location, width, height, label, function, id)
+```
+
+An example button could look a little like this:
+```lua
+butt.new(20, 20, 100, 40, "Button", "print(\"Hello butt!\")", "examplebutton")
+```
+
+Some of these might need some explaining:
+* x- and y-location are the position of the button's top-left corner
+* width and height are the buttons, wait for it, width and height. woah!
+* label is the text displayed on the button
+* function is the function that gets executed when the button is clicked
+* id is a unique identifier for the button that can be used to remove it
+
+### Deleting buttons
+To delete a button, simply call `butt.remove` with a string containing the id of the button you want to delete:
+```lua
+butt.remove("examplebutton")
+```
+
+## Example
+
+Piecing these things together, an example usage of butt could look like this:
 
 ```lua
 require "butt" -- Require butt, so we can use it (duh)
@@ -35,6 +68,12 @@ function love.draw()
 end
 
 ```
+
+When you run this file, you'd see the following:
+
+![butt](https://raw.githubusercontent.com/weloxux/butt/master/scrot.png)
+
+In this screenshot, the examplebutton has been clicked once, resulting in "Hello butt!" being printed to the stdout. If you'd click the rmbutton, the examplebutton would disappear.
 
 ## To do
 
