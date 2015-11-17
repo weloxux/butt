@@ -1,21 +1,29 @@
 butt = {} -- Table to store our functions
 local buttons = {} -- Table to store buttons; invisible to the importer
-local style = {borderwidth = 10,
-		bordercolor = {170, 170, 170, 255}, -- {red, green, blue, alpha}
-		bodycolor = {200, 200, 200, 255},
+butt.style = {borderwidth = 4,
+		bordercolor = {220, 220, 220, 230}, -- {red, green, blue, alpha}
+		bodycolor = {255, 255, 255, 255},
 		textcolor = {10, 10, 10, 255},
 		textoffset = 12,
 		textsize = 1
 		}
+--function love.mousepressed(mx, my, button)
+--	if button == "l" then
+--		for k,button in pairs(buttons) do
+--			if mx >= button.px and mx <= button.px + button.width and my >= button.py and my <= button.py + button.height then
+--				loadstring(button.action)()
+--		end
+--	end
+--end
 
 function butt.update(dt)
 	local mx, my = love.mouse.getPosition()
-	
+
 	for k,button in pairs(buttons) do
 		if mx >= button.px and mx <= button.px + button.width and my >= button.py and my <= button.py + button.height then
-			if love.mouse.isDown("1") then
+			if love.mouse.isDown("l") then
 				--_G[button.action]()
-				button.action()
+				loadstring(button.action)()
 			end
 		end
 	end
@@ -35,16 +43,16 @@ end
 
 function butt.draw()
 	for k,button in pairs(buttons) do
-		if style.borderwidth ~= 0 then -- Draw the border
-			love.graphics.setColor(style.bordercolor)
+		if butt.style.borderwidth ~= 0 then -- Draw the border
+			love.graphics.setColor(butt.style.bordercolor)
 			love.graphics.rectangle("fill", button.px, button.py, button.width, button.height)
 		end
 		
-		love.graphics.setColor(style.bodycolor) -- Draw the button body
-		love.graphics.rectangle("fill", button.px + style.borderwidth, button.py + style.borderwidth, button.width - 2 * style.borderwidth, button.height - 2 * style.borderwidth)
+		love.graphics.setColor(butt.style.bodycolor) -- Draw the button body
+		love.graphics.rectangle("fill", button.px + butt.style.borderwidth, button.py + butt.style.borderwidth, button.width - 2 * butt.style.borderwidth, button.height - 2 * butt.style.borderwidth)
 		
-		love.graphics.setColor(style.textcolor) -- Draw the button text
-		love.graphics.print(button.text, button.px + style.textoffset, button.py + style.textoffset, 0, style.textsize, style.textsize)
+		love.graphics.setColor(butt.style.textcolor) -- Draw the button text
+		love.graphics.print(button.text, button.px + butt.style.textoffset, button.py + butt.style.textoffset, 0, butt.style.textsize, butt.style.textsize)
 	end
 end
 
