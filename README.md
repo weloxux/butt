@@ -78,9 +78,11 @@ In this screenshot, the examplebutton has been clicked once, resulting in "Hello
 ## To do
 
 - [x] Make text get displayed on buttons
-- [ ] Expand documentation
 - [x] Fix running function on click
 - [x] Run tests
+- [x] Expand documentation
+- [ ] Make buttons easily moveable (butt.move, butt.edit, something like that)
+
 
 ## Known bugs
 
