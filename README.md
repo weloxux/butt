@@ -13,7 +13,7 @@ The first thing you need to use butt, is require it, like this:
 require "butt"
 ```
 
-To make sure butt can work properly, you need to execute `butt.update(dt)` and `butt.draw()` in love.update(dt) and love.draw() respectively.
+To make sure butt can work properly, you need to execute `butt.update(dt)` and `butt.draw()` in `love.update(dt)` and `love.draw()` respectively.
 
 ### Adding buttons
 Next of, you'll want to make some buttons. Buttons are created like this:
@@ -33,6 +33,12 @@ Some of these might need some explaining:
 * function is the function that gets executed when the button is clicked
 * id is a unique identifier for the button that can be used to remove it
 
+### Moving buttons
+Moving buttons is done pretty easily: simply call `butt.move` with the button id, a new x position, and a new y position.
+```lua
+butt.move("examplebutton", 120, 90)
+```
+
 ### Deleting buttons
 To delete a button, simply call `butt.remove` with a string containing the id of the button you want to delete:
 ```lua
@@ -48,7 +54,8 @@ require "butt" -- Require butt, so we can use it (duh)
 
 function love.load()
     butt.new(20, 20, 100, 40, "Button", "print(\"Hello butt!\")", "examplebutton") -- Create a new button, with id examplebutton. It triggers the print function when clicked.
-    butt.new(300, 20, 36, 36, "X", "butt.remove(\"examplebutton\")", "rmbutton") -- Create another button, that removes the first one when clicked.
+    butt.new(500, 23, 36, 36, "M", "butt.move(\"examplebutton\", 0, 0)", "mvbutton") -- Create another button, that moves the first one.
+    butt.new(300, 20, 36, 36, "X", "butt.remove(\"examplebutton\")", "rmbutton") -- Create yet another button, that removes the first one when clicked.
 
     -- Further initialisation here
 end
@@ -69,7 +76,7 @@ end
 
 ```
 
-When you run this file, you'd see the following:
+When you run this file, you'll see the following (old screenshot without mvbutton):
 
 ![butt](https://raw.githubusercontent.com/weloxux/butt/master/scrot.png)
 
@@ -81,7 +88,7 @@ In this screenshot, the examplebutton has been clicked once, resulting in "Hello
 - [x] Fix running function on click
 - [x] Run tests
 - [x] Expand documentation
-- [ ] Make buttons easily moveable (butt.move, butt.edit, something like that)
+- [x] Make buttons easily moveable (butt.move, butt.edit, something like that)
 
 
 ## Known bugs

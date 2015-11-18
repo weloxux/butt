@@ -56,6 +56,15 @@ function butt.draw()
 	end
 end
 
+function butt.move(id, nx, ny)
+	for k,button in pairs(buttons) do
+		if button.id == id then
+			buttons[k].px = nx
+			buttons[k].py = ny
+		end
+	end
+end
+
 function butt.remove(id)
 	for k,button in pairs(buttons) do
 		if button.id == id then -- Remove only button(s) with supplied id
