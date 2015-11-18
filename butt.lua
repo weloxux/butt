@@ -7,14 +7,6 @@ butt.style = {borderwidth = 4,
 		textoffset = 12,
 		textsize = 1
 		}
---function love.mousepressed(mx, my, button)
---	if button == "l" then
---		for k,button in pairs(buttons) do
---			if mx >= button.px and mx <= button.px + button.width and my >= button.py and my <= button.py + button.height then
---				loadstring(button.action)()
---		end
---	end
---end
 
 function butt.update(dt)
 	local mx, my = love.mouse.getPosition()
@@ -22,7 +14,6 @@ function butt.update(dt)
 	for k,button in pairs(buttons) do
 		if mx >= button.px and mx <= button.px + button.width and my >= button.py and my <= button.py + button.height then
 			if love.mouse.isDown("l") then
-				--_G[button.action]()
 				loadstring(button.action)()
 			end
 		end
